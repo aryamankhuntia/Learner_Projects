@@ -17,8 +17,8 @@ Minimal\_Transformer/
 │── components/
 │   ├── attention.py           # Multi-head attention
 │   ├── feedforward.py         # Position-wise feedforward network
-│   ├── positional\_encoding.py # Positional encodings
-│   ├── transformer\_block.py   # Encoder/decoder block
+│   ├── positional_encoding.py # Positional encodings
+│   ├── transformer_block.py   # Encoder/decoder block
 │   ├── encoder.py             # Encoder stack
 │   ├── decoder.py             # Decoder stack
 │   └── transformer.py         # Full Transformer model
