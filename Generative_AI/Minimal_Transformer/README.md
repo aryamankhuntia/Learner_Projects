@@ -2,7 +2,6 @@
 
 [![Python Version](https://img.shields.io/badge/Python-3.10+-blue)](https://python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red)](https://pytorch.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 
 This project implements a **minimal Transformer block** (attention + MLP) from scratch in PyTorch, trained on a toy copy task.  
