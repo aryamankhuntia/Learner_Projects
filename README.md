@@ -30,9 +30,10 @@ Projects span across:
 
 ## 🛠️ Tech Stack
 
-* **Languages:** Python 🐍
-* **Libraries:** PyTorch, NumPy, Matplotlib, Scikit-learn (varies by project)
-* **Tools:** Git, VSCode, Jupyter
+* **Languages:** Python, C, JavaScript, HTML/CSS, SQL
+* **Operating Systems:** Linux, Windows, MacOS
+* **Softwares:** Git, Flask, Streamlit, Docker, AWS, MongoDB
+* **Frameworks:** Pytorch, TensorFlow, HuggingFace, Scikit-Learn, NLTK, Scipy, Tesseract OCR
 
 ---
 
@@ -66,11 +67,3 @@ Each project will have:
 This is a **living repository** — I’ll be continuously adding projects as I learn. Stay tuned!
 
 ---
-
-## 📜 License
-
-This repo is released under the **MIT License**. Free to use & learn from.
-
----
-
-👉 Do you want me to also **add a section at the bottom for a planned roadmap** (like a checklist of projects you’ll be adding: e.g., LSTM from scratch, GPT mini, RL CartPole agent, etc.), so people see what’s coming next?
