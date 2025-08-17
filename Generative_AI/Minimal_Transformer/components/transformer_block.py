@@ -1,14 +1,14 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as func
-import attention as attn
-import feedforward as ff
+from .attention import MultiHeadAttention
+from .feedforward import FeedForward
 
 class TransformerBlock(nn.Module):
     def __init__(self,d_model,n_heads,d_ff,dropout=0.1):
         super().__init__()
-        self.attention=attn.MultiHeadAttention(d_model,n_heads)
-        self.ff=ff.FeedForward(d_model,d_ff,dropout)
+        self.attention=MultiHeadAttention(d_model,n_heads)
+        self.ff=FeedForward(d_model,d_ff,dropout)
         self.norm1=nn.LayerNorm(d_model)
         self.norm2=nn.LayerNorm(d_model)
         self.dropout=nn.Dropout(dropout)
@@ -25,9 +25,9 @@ class TransformerBlock(nn.Module):
 class DecoderBlock(nn.Module):
     def __init__(self,d_model,n_heads,d_ff,dropout=0.1):
         super().__init__()
-        self.self_attention=attn.MultiHeadAttention(d_model,n_heads)
-        self.cross_attention=attn.MultiHeadAttention(d_model,n_heads)
-        self.ff=ff.FeedForward(d_model,d_ff,dropout)
+        self.self_attention=MultiHeadAttention(d_model,n_heads)
+        self.cross_attention=MultiHeadAttention(d_model,n_heads)
+        self.ff=FeedForward(d_model,d_ff,dropout)
         
         self.norm1=nn.LayerNorm(d_model)
         self.norm2=nn.LayerNorm(d_model)

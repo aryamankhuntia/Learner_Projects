@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as func
-import feedforward
+from .feedforward import FeedForward
 
 class ScaledDotProductAttention(nn.Module):
     def __init__(self, d_k):
@@ -43,7 +43,7 @@ class MultiHeadAttention(nn.Module):
         V=V.view(batchsize,-1,self.n_heads,self.d_k).transpose(1,2)
         
         output,attention=self.attention(Q,K,V,mask)
-        output=output.transpose(1.2).contiguous().view(batchsize,-1,self.n_heads*self.d_k)
+        output=output.transpose(1,2).contiguous().view(batchsize,-1,self.n_heads*self.d_k)
         
         return self.w_o(output)
     
@@ -51,7 +51,7 @@ class TransformerBlock(nn.Module):
     def __init__(self,d_model,n_heads,d_ff,dropout=0.1):
         super().__init__()
         self.attention=MultiHeadAttention(d_model,n_heads)
-        self.ff=feedforward.FeedForward(d_model,d_ff,dropout)
+        self.ff=FeedForward(d_model,d_ff,dropout)
         self.norm1=nn.LayerNorm(d_model)
         self.norm2=nn.LayerNorm(d_model)
         self.dropout=nn.Dropout(dropout)
