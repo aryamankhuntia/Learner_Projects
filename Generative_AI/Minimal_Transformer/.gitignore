@@ -1,5 +1,4 @@
 __pycache__/
 *.pt
-*.png
 *.ipynb_checkpoints
 *.log
