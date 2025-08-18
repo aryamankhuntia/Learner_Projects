@@ -47,25 +47,5 @@ class MultiHeadAttention(nn.Module):
         
         return self.w_o(output)
     
-class TransformerBlock(nn.Module):
-    def __init__(self,d_model,n_heads,d_ff,dropout=0.1):
-        super().__init__()
-        self.attention=MultiHeadAttention(d_model,n_heads)
-        self.ff=FeedForward(d_model,d_ff,dropout)
-        self.norm1=nn.LayerNorm(d_model)
-        self.norm2=nn.LayerNorm(d_model)
-        self.dropout=nn.Dropout(dropout)
-        
-    def forward(self,x,mask=None):
-        attention_out=self.attention(x,x,x,mask)
-        x=self.norm1(x+self.dropout(attention_out))
-        
-        ff_out=self.ff(x)
-        x=self.norm2(x+self.dropout(ff_out))
-        
-        return x
-
-    
-    
     
 
